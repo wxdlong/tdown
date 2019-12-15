@@ -1,0 +1,28 @@
+name: Download temp resources.
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: echo Download!
+    - name: Download temp resources
+      run: |
+        chmod +x ./download.sh
+        ./download.sh
+    - name: Login Docker Push images
+      env:
+        ACCESS_TOKEN: ${{ secrets.DOCKER_PW }} 
+      run: |
+        source version
+        echo "PWD:${PWD}"
+        docker login -u wxdlong -p ${ACCESS_TOKEN}
+        docker build . --file Dockerfile --tag wxdlong/tdown:${version}
+        echo "push to docker hub"
+        docker push wxdlong/tdown:${version}
