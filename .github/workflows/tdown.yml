@@ -26,3 +26,9 @@ jobs:
         docker build . --file Dockerfile --tag wxdlong/ok8s:${version}
         echo "push to docker hub"
         docker push wxdlong/ok8s:${version}
+
+        echo "push to aliyun"
+        docker logout
+        docker login registry.cn-hangzhou.aliyuncs.com -u yjmnrg@gmail.com -p ${ACCESS_TOKEN}
+        docker tag wxdlong/ok8s:${version} registry.cn-hangzhou.aliyuncs.com/wxdlong/ok8s:${version}
+        docker push registry.cn-hangzhou.aliyuncs.com/wxdlong/ok8s:${version}
