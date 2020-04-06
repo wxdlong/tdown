@@ -3,7 +3,7 @@ LABEL Author=wxdlong \
       Email=wxdlong@qq.com \
       WHAT="Temp download what you want."
 
-COPY tdown.tar.gz /home
+COPY ok8s.tar.gz /home
 
-ENTRYPOINT ["tar","-xzvf","/home/otdown.tar.gz","-C","/tdown"]
+ENTRYPOINT ["tar","-xzvf","/home/ok8s.tar.gz","-C","/ok8s"]
 
