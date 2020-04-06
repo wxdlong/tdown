@@ -11,7 +11,7 @@ images=(k8s.gcr.io/pause:3.1 k8s.gcr.io/kube-apiserver:${k8sVersion} k8s.gcr.io/
    calico/node:${calicoVersion} calico/pod2daemon-flexvol:${calicoVersion}  calico/dikastes:${calicoVersion} \ 
    calico/cni:${calicoVersion} calico/flannel-migration-controller:${calicoVersion} \ 
    calico/kube-controllers:${calicoVersion}  calico/typha:${calicoVersion} \ 
-   nginx:${1.16.0} quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.30.0)
+   nginx:1.16.0 quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.30.0)
 
 for image in ${images[@]}; 
 do
